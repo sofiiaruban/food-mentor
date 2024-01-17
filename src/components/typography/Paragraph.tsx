@@ -6,11 +6,11 @@ interface ParagraphProps {
   size?: 'secondary' | 'tertiary'
 }
 
-const ParagraphTertiary: FC<ParagraphProps> = ({
+const Paragraph: FC<ParagraphProps> = ({
   title
   //size = 'secondary'
 }) => {
   return <h3 className={style.title_bold_main}>{title}</h3>
 }
 
-export default ParagraphTertiary
+export default Paragraph
