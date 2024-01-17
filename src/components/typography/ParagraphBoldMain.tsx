@@ -6,7 +6,8 @@ interface ParagraphBoldMainProp {
 }
 
 const ParagraphBoldMain: FC<ParagraphBoldMainProp> = ({ title }) => {
-  return <h2 className={style.title_bold_main}>{title}</h2>
+  return <h3 className={style.title_bold_main}>{title}</h3>
 }
 
 export default ParagraphBoldMain
+ 
