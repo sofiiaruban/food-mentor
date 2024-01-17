@@ -1,4 +1,4 @@
-.title_bold_main {
+.title_primary {
   color: var(--General-Black, #2d3436);
   text-align: center;
   font-family: Inter;
@@ -18,8 +18,16 @@
   line-height: 171%;
   letter-spacing: 0.25px;
 }
-
-.title_bold {
+.title_secondary {
+  color: var(--General-Black, #2d3436);
+  font-family: Inter;
+  font-size: 16.679px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22.933px; /* 137.5% */
+  letter-spacing: 0.208px;
+}
+.title_tertiary {
   color: var(--General-Black, #2d3436);
   text-align: center;
   font-family: Inter;
@@ -30,3 +38,9 @@
   letter-spacing: 0.2px;
 }
 /* refactor it */
+.secondary {
+  font-size: 16px;
+}
+.tertiary {
+  font-size: 14px;
+}

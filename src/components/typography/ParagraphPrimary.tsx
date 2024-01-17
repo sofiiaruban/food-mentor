@@ -1,12 +1,12 @@
 import { FC } from 'react'
 import style from './Typography.module.css'
 
-interface ParagraphBoldProp {
+interface ParagraphPrimaryProp {
   title: string
 }
 
-const ParagraphBoldMain: FC<ParagraphBoldProp> = ({ title }) => {
+const ParagraphPrimary: FC<ParagraphPrimaryProp> = ({ title }) => {
   return <h2 className={style.title_bold}>{title}</h2>
 }
 
-export default ParagraphBoldMain
+export default ParagraphPrimary
