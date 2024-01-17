@@ -1,8 +1,12 @@
 import { FC } from 'react'
+import Icon from './Icon'
+import logo from '../assets/Logo.svg'
 
-const Header:FC = () => {
+const Header: FC = () => {
   return (
-    <div>Header</div>
+    <header>
+      <Icon src={logo} width={150} height={35} alt='logo'/>
+    </header>
   )
 }
 
