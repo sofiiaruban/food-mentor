@@ -1,5 +1,7 @@
+import Layout from "../components/Layout"
+
 const Behavior = () => {
-  return <div>Behavior</div>
+  return <Layout>Behavior</Layout>
 }
 
 export default Behavior

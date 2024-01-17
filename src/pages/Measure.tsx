@@ -1,7 +1,8 @@
+import Layout from "../components/Layout"
 
 const Measure = () => {
   return (
-    <div>Measure</div>
+    <Layout>Measure</Layout>
   )
 }
 

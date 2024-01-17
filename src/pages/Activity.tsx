@@ -1,5 +1,7 @@
+import Layout from '../components/Layout'
+
 const Activity = () => {
-  return <div>Activity</div>
+  return <Layout>Activity</Layout>
 }
 
 export default Activity

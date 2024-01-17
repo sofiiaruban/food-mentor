@@ -1,8 +1,7 @@
+import Layout from '../components/Layout'
 
 const Goal = () => {
-  return (
-    <div>Goal</div>
-  )
+  return <Layout>Goal</Layout>
 }
 
 export default Goal
