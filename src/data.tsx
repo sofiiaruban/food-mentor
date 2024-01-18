@@ -60,7 +60,7 @@ export const enum ParagraphSize {
   SECONDARY = 'secondary',
   TERTIARY = 'tertiary'
 }
-export const RadioGroupOptions = [
+export const radioGroupOptions = [
   {
     id: '1#',
     name: 'radioGroup',
@@ -72,5 +72,20 @@ export const RadioGroupOptions = [
     name: 'radioGroup',
     value: 'Metric',
     label: 'Metric'
+  }
+]
+
+export const imperialMeasureList = [
+  { name: 'height', placeholder: 'Height(ft)' },
+  {
+    name: 'weight',
+    placeholder: 'Current Weight(lb)'
+  }
+]
+export const metricMeasureList = [
+  { name: 'height', placeholder: 'Height(cm)' },
+  {
+    name: 'weight',
+    placeholder: 'Current Weight(kg)'
   }
 ]

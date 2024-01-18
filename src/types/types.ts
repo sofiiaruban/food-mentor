@@ -13,3 +13,7 @@ export interface RadioGroupOption {
   value: string
   label: string
 }
+export interface MeasureData {
+  name: string
+  placeholder: string
+}
