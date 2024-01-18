@@ -60,3 +60,17 @@ export const enum ParagraphSize {
   SECONDARY = 'secondary',
   TERTIARY = 'tertiary'
 }
+export const RadioGroupOptions = [
+  {
+    id: '1#',
+    name: 'radioGroup',
+    value: 'Imperial',
+    label: 'Imperial'
+  },
+  {
+    id: '2#',
+    name: 'radioGroup',
+    value: 'Metric',
+    label: 'Metric'
+  }
+]

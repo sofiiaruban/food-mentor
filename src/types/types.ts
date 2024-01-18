@@ -6,3 +6,10 @@ export interface CardProps {
   children?: ReactNode
   type?: CardType
 }
+
+export interface RadioGroupOption {
+  id: string
+  name: string
+  value: string
+  label: string
+}

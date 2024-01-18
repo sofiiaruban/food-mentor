@@ -1,9 +1,9 @@
 import { FC } from 'react'
 
-import Card from './components/Card'
+import Card from './Card/Card'
 import { CardProps } from '@/types/types'
 import styles from './CardList.module.scss'
-import CardLink from './components/CardLink'
+import CardLink from './Card/CardLink'
 
 interface CardListProps {
   cardList: Array<CardProps>
