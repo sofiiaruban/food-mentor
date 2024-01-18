@@ -1,6 +1,6 @@
 import Layout from '../components/Layout/Layout'
-import DescriptionText from '../components/typography/DescriptionText'
-import ParagraphPrimary from '../components/typography/ParagraphPrimary'
+import DescriptionText from '../components/Typography/DescriptionText'
+import ParagraphPrimary from '../components/Typography/ParagraphPrimary'
 import { DescriptionTexts, PrimaryTitle } from '../data'
 
 const Behavior = () => {

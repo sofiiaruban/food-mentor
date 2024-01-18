@@ -1,21 +1,25 @@
 import CardList from '../components/List/CardList'
 import Layout from '../components/Layout/Layout'
-import DescriptionText from '../components/typography/DescriptionText'
-import Paragraph from '../components/typography/Paragraph'
-import ParagraphPrimary from '../components/typography/ParagraphPrimary'
+import DescriptionText from '../components/Typography/DescriptionText'
+import Paragraph from '../components/Typography/Paragraph'
+import ParagraphPrimary from '../components/Typography/ParagraphPrimary'
+import { AppRoutes } from '@/AppRoutes'
 import {
   PrimaryTitle,
   DescriptionTexts,
   TertiaryTitle,
   goalsList
 } from '../data'
+
 const Goal = () => {
+  const NEXT_PAGE_URL = AppRoutes.MEASURE
+
   return (
     <Layout>
       <ParagraphPrimary title={PrimaryTitle.GOAL} />
       <DescriptionText text={DescriptionTexts.GOAL} />
       <Paragraph title={TertiaryTitle.GOAL} />
-      <CardList cardList={goalsList} />
+      <CardList cardList={goalsList} isLink={true} url={NEXT_PAGE_URL} />
     </Layout>
   )
 }

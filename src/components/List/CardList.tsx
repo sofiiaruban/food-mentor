@@ -3,21 +3,33 @@ import { FC } from 'react'
 import Card from './components/Card'
 import { CardProps } from '@/types/types'
 import styles from './CardList.module.scss'
+import CardLink from './components/CardLink'
 
 interface CardListProps {
   cardList: Array<CardProps>
+  isLink: boolean
+  url: string
 }
 
-const CardList: FC<CardListProps> = ({ cardList }) => {
+const CardList: FC<CardListProps> = ({ cardList, isLink, url }) => {
   return (
     <ul className={styles.list}>
-      {cardList.map((card, index) => (
-        <Card
-          title={card.title}
-          key={`${card.title}${index}`}
-          children={card.children}
-        />
-      ))}
+      {cardList.map((card, index) =>
+        isLink ? (
+          <CardLink
+            url={url}
+            title={card.title}
+            key={`${card.title}${index}`}
+            children={card.children}
+          />
+        ) : (
+          <Card
+            title={card.title}
+            key={`${card.title}${index}`}
+            children={card.children}
+          />
+        )
+      )}
     </ul>
   )
 }

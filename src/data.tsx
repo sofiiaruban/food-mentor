@@ -38,15 +38,15 @@ export const goalsList = [
   },
   {
     title: 'Gain Muscle',
-    children: <Icon src={gain} width={134} height={180} />
+    children: <Icon src={gain} width={130} height={172} />
   },
   {
     title: 'Develop healthy habits',
-    children: <Icon src={developLeft} width={81} height={168} />
+    children: <Icon src={developLeft} width={81} height={172} />
   },
   {
     title: 'Develop healthy habits',
-    children: <Icon src={developRight} width={102} height={172} />
+    children: <Icon src={developRight} width={100} height={172} />
   }
 ]
 

@@ -1,7 +1,7 @@
 import Layout from '../components/Layout/Layout'
-import DescriptionText from '../components/typography/DescriptionText'
-import Paragraph from '../components/typography/Paragraph'
-import ParagraphPrimary from '../components/typography/ParagraphPrimary'
+import DescriptionText from '../components/Typography/DescriptionText'
+import Paragraph from '../components/Typography/Paragraph'
+import ParagraphPrimary from '../components/Typography/ParagraphPrimary'
 import { DescriptionTexts, PrimaryTitle, TertiaryTitle } from '../data'
 
 const Activity = () => {

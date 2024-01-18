@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Paragraph from '../../typography/Paragraph'
+import Paragraph from '../../Typography/Paragraph'
 import { CardProps } from '@/types/types'
 import { CardType } from '@/data'
 import styles from './Card.module.scss'

@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import style from './Typography.module.css'
+import style from './Typography.module.scss'
 
 interface ParagraphProps {
   title: string

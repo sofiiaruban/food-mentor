@@ -1,4 +1,4 @@
-export enum APP_ROUTES {
+export enum AppRoutes {
   GOAL = "/",
   MEASURE = "/measure",
   BEHAVIOR = "/behavior",

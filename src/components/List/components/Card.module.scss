@@ -1,9 +1,15 @@
+$radius: 20px;
+$size: 172px;
+
 .card {
-  border-radius: 20px;
+  border-radius: $radius;
   border: 1px solid var(--Separator-Light, #e1e1e1);
   display: flex;
   justify-content: center;
   align-items: center;
+  width: $size;
+  max-height: $size;
+  padding-left: 5px;
 
   &.card-goal {
     background: var(
@@ -23,5 +29,10 @@
     background: var(--Background-Light, #fff);
     padding: 18px 15px;
     align-items: left;
+  }
+  img {
+    border-top-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+    width: calc($size / 2);
   }
 }

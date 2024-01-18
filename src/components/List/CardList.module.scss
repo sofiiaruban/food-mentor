@@ -1,4 +1,9 @@
 .list {
   list-style: none;
   display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: calc(360px + 16px);
 }
