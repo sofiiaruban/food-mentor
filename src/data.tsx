@@ -3,6 +3,12 @@ import lose from '@/assets/lose-img.svg'
 import gain from '@/assets/gain-img.svg'
 import developLeft from '@/assets/develop-left.svg'
 import developRight from '@/assets/develop-right.svg'
+import moon from '@/assets/moon.svg'
+import donut from '@/assets/donut.svg'
+import soda from '@/assets/soda.svg'
+import salt from '@/assets/salt.svg'
+import pizza from '@/assets/food-and-restaurant.svg'
+import forbidden from '@/assets/forbidden.svg'
 
 export enum PrimaryTitle {
   GOAL = 'The Goal',
@@ -21,15 +27,32 @@ export enum TertiaryTitle {
   ACTIVITY = 'How active are you during the day?'
 }
 
-const habitsArray = [
-  "I don't rest enough",
-  'I have a sweet tooth',
-  'I have too much soda',
-  'I eat many salty foods',
-  'I enjoy midnight snacks',
-  'None of the above'
+export const habitsList = [
+  {
+    title: "I don't rest enough",
+    children: <Icon src={moon} />
+  },
+  {
+    title: 'I have a sweet tooth',
+    children: <Icon src={donut} />
+  },
+  {
+    title: 'I have too much soda',
+    children: <Icon src={soda} />
+  },
+  {
+    title: 'I eat many salty foods',
+    children: <Icon src={salt} />
+  },
+  {
+    title: 'I enjoy midnight snacks',
+    children: <Icon src={pizza} />
+  },
+  {
+    title: 'None of the above',
+    children: <Icon src={forbidden} />
+  }
 ]
-console.log(habitsArray)
 
 export const goalsList = [
   {
@@ -48,6 +71,12 @@ export const goalsList = [
     title: 'Develop healthy habits',
     children: <Icon src={developRight} width={100} height={172} />
   }
+]
+export const activityList = [
+  { title: 'Hardly at all' },
+  { title: 'Fitness 1-2 times a week' },
+  { title: 'Fitness 3-5 times a week' },
+  { title: 'Fitness 5-7 times a week' }
 ]
 
 export const enum CardType {
@@ -74,7 +103,6 @@ export const radioGroupOptions = [
     label: 'metric'
   }
 ]
-
 
 export const imperialMeasureList = [
   { name: 'height', placeholder: 'Height (ft)' },
