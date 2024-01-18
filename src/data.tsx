@@ -49,3 +49,9 @@ export const goalsList = [
     children: <Icon src={developRight} width={102} height={172} />
   }
 ]
+
+export const enum CardType {
+  GOAL = 'goal',
+  BEHAVIOR = 'behavior',
+  ACTIVITY = 'activity'
+}

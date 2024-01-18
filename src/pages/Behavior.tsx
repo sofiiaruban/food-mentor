@@ -1,4 +1,4 @@
-import Layout from '../components/Layout'
+import Layout from '../components/Layout/Layout'
 import DescriptionText from '../components/typography/DescriptionText'
 import ParagraphPrimary from '../components/typography/ParagraphPrimary'
 import { DescriptionTexts, PrimaryTitle } from '../data'

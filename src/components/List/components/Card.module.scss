@@ -1,0 +1,27 @@
+.card {
+  border-radius: 20px;
+  border: 1px solid var(--Separator-Light, #e1e1e1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.card-goal {
+    background: var(
+      --Background-Gradient-Light,
+      linear-gradient(214deg, #f1f1f1 12.33%, #fff 69.93%)
+    );
+    padding: 0;
+  }
+  &.card-behavior {
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 12px 24px 12px 15px;
+    gap: 10px;
+  }
+  &.card-activity {
+    background: var(--Background-Light, #fff);
+    padding: 18px 15px;
+    align-items: left;
+  }
+}
