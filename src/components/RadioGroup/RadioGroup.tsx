@@ -1,6 +1,7 @@
-import {  FC } from 'react'
+import { FC } from 'react'
 import RadioButton from './RadioButton/RadioButton'
 import { RadioGroupOption } from '@/types/types'
+import styles from './RadioGroup.module.scss'
 
 interface RadioGroupProps {
   options: RadioGroupOption[]
@@ -13,9 +14,8 @@ const RadioGroup: FC<RadioGroupProps> = ({
   currentValue,
   onChange
 }) => {
-
   return (
-    <div>
+    <div className={styles.group}>
       {options.map((option) => (
         <RadioButton
           key={option.id}

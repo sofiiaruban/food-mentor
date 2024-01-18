@@ -1,5 +1,7 @@
 import { RadioGroupOption } from '@/types/types'
 import { ChangeEvent, FC } from 'react'
+import styles from './RadioButton.module.scss'
+import classnames from 'classnames'
 
 interface RadioButtonProps {
   option: RadioGroupOption
@@ -12,11 +14,15 @@ const RadioButton: FC<RadioButtonProps> = ({
   isSelected,
   onChange
 }) => {
+  const radioButtonClasses = classnames(styles.radio, {
+    [styles['radio-active']]: isSelected
+  })
   const handleOnChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value)
   }
+
   return (
-    <div tabIndex={0}>
+    <div tabIndex={0} className={radioButtonClasses}>
       <input
         type="radio"
         id={id}

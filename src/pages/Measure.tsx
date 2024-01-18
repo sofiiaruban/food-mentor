@@ -6,9 +6,9 @@ import { PrimaryTitle, DescriptionTexts, RadioGroupOptions } from '../data'
 import { useState } from 'react'
 
 const Measure = () => {
-  const [value, setValue] = useState(RadioGroupOptions[0].value)
-  console.log(RadioGroupOptions)
-  console.log(value)
+  const DEFAULT_VALUE = RadioGroupOptions[0].value
+  const [value, setValue] = useState(DEFAULT_VALUE)
+
   return (
     <Layout>
       <ParagraphPrimary title={PrimaryTitle.MEASURE} />
