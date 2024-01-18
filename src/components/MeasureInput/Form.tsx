@@ -5,7 +5,7 @@ import styles from './Form.module.scss'
 
 interface FormProps {
   measureList: MeasureData[]
-  onInputChange: (name: string, value: string) => void
+  onInputChange: (name: string, value: string, isValid: boolean) => void
 }
 
 const Form: FC<FormProps> = ({ measureList, onInputChange }) => {
@@ -17,7 +17,9 @@ const Form: FC<FormProps> = ({ measureList, onInputChange }) => {
           key={`${measure.name}${index}`}
           placeholder={measure.placeholder}
           name={measure.name}
-          onInputChange={onInputChange}
+          onInputChange={(name, value, isValid) =>
+            onInputChange(name, value, isValid)
+          }
         />
       ))}
     </form>

@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Icon from './Icon'
 import logo from '../assets/Logo.svg'
-import ButtonLink from './ButtonLink'
+import ButtonLink from './ButtonLink/ButtonLink'
 import back from '../assets/back.svg'
 
 const Header: FC = () => {

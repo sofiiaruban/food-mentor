@@ -6,7 +6,7 @@ interface InputFieldProps {
   type: string
   placeholder: string
   name: string
-  onInputChange: (name: string, value: string) => void
+  onInputChange: (name: string, value: string, isValid: boolean) => void
 }
 
 const InputField: FC<InputFieldProps> = ({
@@ -34,7 +34,7 @@ const InputField: FC<InputFieldProps> = ({
     if (isValidValue) {
       setIsValid(true)
       setValue(newValue)
-      onInputChange(name, newValue)
+      onInputChange(name, newValue, isValidValue)
     } else {
       setIsValid(false)
     }

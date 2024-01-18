@@ -64,28 +64,29 @@ export const radioGroupOptions = [
   {
     id: '1#',
     name: 'radioGroup',
-    value: 'Imperial',
-    label: 'Imperial'
+    value: 'imperial',
+    label: 'imperial'
   },
   {
     id: '2#',
     name: 'radioGroup',
-    value: 'Metric',
-    label: 'Metric'
+    value: 'metric',
+    label: 'metric'
   }
 ]
 
+
 export const imperialMeasureList = [
-  { name: 'height', placeholder: 'Height(ft)' },
+  { name: 'height', placeholder: 'Height (ft)' },
   {
     name: 'weight',
-    placeholder: 'Current Weight(lb)'
+    placeholder: 'Current Weight (lb)'
   }
 ]
 export const metricMeasureList = [
-  { name: 'height', placeholder: 'Height(cm)' },
+  { name: 'height', placeholder: 'Height (cm)' },
   {
     name: 'weight',
-    placeholder: 'Current Weight(kg)'
+    placeholder: 'Current Weight (kg)'
   }
 ]
