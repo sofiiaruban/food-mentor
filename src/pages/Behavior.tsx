@@ -1,13 +1,13 @@
 import Layout from '../components/Layout'
 import DescriptionText from '../components/typography/DescriptionText'
 import ParagraphPrimary from '../components/typography/ParagraphPrimary'
-import { DESCRIPTION_TEXT, PRIMARY_TITLE } from '../data'
+import { DescriptionTexts, PrimaryTitle } from '../data'
 
 const Behavior = () => {
   return (
     <>
-      <ParagraphPrimary title={PRIMARY_TITLE.BEHAVIOR} />
-      <DescriptionText text={DESCRIPTION_TEXT.BEHAVIOR} />
+      <ParagraphPrimary title={PrimaryTitle.BEHAVIOR} />
+      <DescriptionText text={DescriptionTexts.BEHAVIOR} />
       <Layout>Behavior</Layout>
     </>
   )

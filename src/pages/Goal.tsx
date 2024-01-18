@@ -1,17 +1,21 @@
-import GoalsCardList from '../components/GoalsCardList'
+import CardList from '../components/List/CardList'
 import Layout from '../components/Layout'
 import DescriptionText from '../components/typography/DescriptionText'
 import Paragraph from '../components/typography/Paragraph'
 import ParagraphPrimary from '../components/typography/ParagraphPrimary'
-import { PRIMARY_TITLE, DESCRIPTION_TEXT, TERTIARY_TITLE } from '../data'
-
+import {
+  PrimaryTitle,
+  DescriptionTexts,
+  TertiaryTitle,
+  goalsList
+} from '../data'
 const Goal = () => {
   return (
     <Layout>
-      <ParagraphPrimary title={PRIMARY_TITLE.GOAL} />
-      <DescriptionText text={DESCRIPTION_TEXT.GOAL} />
-      <Paragraph title={TERTIARY_TITLE.GOAL} />
-      <GoalsCardList />
+      <ParagraphPrimary title={PrimaryTitle.GOAL} />
+      <DescriptionText text={DescriptionTexts.GOAL} />
+      <Paragraph title={TertiaryTitle.GOAL} />
+      <CardList cardList={goalsList} />
     </Layout>
   )
 }
