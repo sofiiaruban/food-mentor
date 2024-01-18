@@ -1,16 +1,19 @@
 import { FC } from 'react'
-import style from './Typography.module.scss'
+import styles from './Typography.module.scss'
+import { ParagraphSize } from '@/data'
+import classnames from 'classnames'
 
 interface ParagraphProps {
   title: string
-  size?: 'secondary' | 'tertiary'
+  size?: ParagraphSize
 }
 
 const Paragraph: FC<ParagraphProps> = ({
-  title
-  //size = 'secondary'
+  title,
+  size = ParagraphSize.SECONDARY
 }) => {
-  return <h3 className={style.title_bold_main}>{title}</h3>
+  const titleClasses = classnames(styles.text, styles[`text-${size}`])
+  return <h3 className={titleClasses}>{title}</h3>
 }
 
 export default Paragraph

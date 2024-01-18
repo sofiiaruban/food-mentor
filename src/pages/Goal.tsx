@@ -8,7 +8,8 @@ import {
   PrimaryTitle,
   DescriptionTexts,
   TertiaryTitle,
-  goalsList
+  goalsList,
+  ParagraphSize
 } from '../data'
 
 const Goal = () => {
@@ -18,7 +19,7 @@ const Goal = () => {
     <Layout>
       <ParagraphPrimary title={PrimaryTitle.GOAL} />
       <DescriptionText text={DescriptionTexts.GOAL} />
-      <Paragraph title={TertiaryTitle.GOAL} />
+      <Paragraph title={TertiaryTitle.GOAL} size={ParagraphSize.TERTIARY} />
       <CardList cardList={goalsList} isLink={true} url={NEXT_PAGE_URL} />
     </Layout>
   )

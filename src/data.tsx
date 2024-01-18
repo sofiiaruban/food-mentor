@@ -55,3 +55,8 @@ export const enum CardType {
   BEHAVIOR = 'behavior',
   ACTIVITY = 'activity'
 }
+
+export const enum ParagraphSize {
+  SECONDARY = 'secondary',
+  TERTIARY = 'tertiary'
+}

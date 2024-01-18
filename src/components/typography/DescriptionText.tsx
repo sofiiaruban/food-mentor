@@ -6,7 +6,8 @@ interface DescriptionTextProp {
 }
 
 const DescriptionText: FC<DescriptionTextProp> = ({ text }) => {
-  return <p className={styles.description_text}>{text}</p>
+  const textClasses = `${styles.text} ${styles['description-text']}`
+  return <p className={textClasses}>{text}</p>
 }
 
 export default DescriptionText
