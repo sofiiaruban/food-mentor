@@ -30,53 +30,62 @@ export enum TertiaryTitle {
 export const habitsList = [
   {
     title: "I don't rest enough",
+    name: 'restLack',
     children: <Icon src={moon} />
   },
   {
     title: 'I have a sweet tooth',
+    name: 'sweet',
     children: <Icon src={donut} />
   },
   {
     title: 'I have too much soda',
+    name: 'soda',
     children: <Icon src={soda} />
   },
   {
     title: 'I eat many salty foods',
+    name: 'salt',
     children: <Icon src={salt} />
   },
   {
     title: 'I enjoy midnight snacks',
+    name: 'snacks',
     children: <Icon src={pizza} />
   },
   {
     title: 'None of the above',
+    name: 'none',
     children: <Icon src={forbidden} />
   }
 ]
-
 export const goalsList = [
   {
     title: 'Lose Weight',
+    name: 'lose',
     children: <Icon src={lose} width={85} height={172} />
   },
   {
     title: 'Gain Muscle',
+    name: 'gain',
     children: <Icon src={gain} width={130} height={172} />
   },
   {
     title: 'Develop healthy habits',
+    name: 'health',
     children: <Icon src={developLeft} width={81} height={172} />
   },
   {
     title: 'Develop healthy habits',
+    name: 'stressRelief',
     children: <Icon src={developRight} width={100} height={172} />
   }
 ]
 export const activityList = [
-  { title: 'Hardly at all' },
-  { title: 'Fitness 1-2 times a week' },
-  { title: 'Fitness 3-5 times a week' },
-  { title: 'Fitness 5-7 times a week' }
+  { title: 'Hardly at all', name: 'none' },
+  { title: 'Fitness 1-2 times a week', name: 'low' },
+  { title: 'Fitness 3-5 times a week', name: 'average' },
+  { title: 'Fitness 5-7 times a week', name: 'active' }
 ]
 
 export const enum CardType {

@@ -1,8 +1,10 @@
 import { CardType } from '@/data'
-import { ReactNode } from 'react'
+import { MouseEventHandler, ReactNode } from 'react'
 
 export interface CardProps {
   title: string
+  name: string
+  clickHandler?: MouseEventHandler<HTMLLIElement>
   children?: ReactNode
   type?: CardType
 }
@@ -16,4 +18,37 @@ export interface RadioGroupOption {
 export interface MeasureData {
   name: string
   placeholder: string
+}
+
+export interface UserData {
+  goal: {
+    lose: boolean
+    gain: boolean
+    health: boolean
+    stressRelief: boolean
+  }
+  measure: {
+    metric: {
+      weight: string
+      height: string
+    }
+    imperial: {
+      weight: string
+      height: string
+    }
+  }
+  behavior: {
+    restLack: boolean
+    sweet: boolean
+    soda: boolean
+    salt: boolean
+    snacks: boolean
+    none: boolean
+  }
+  activity: {
+    none: boolean
+    low: boolean
+    average: boolean
+    active: boolean
+  }
 }

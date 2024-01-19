@@ -9,14 +9,20 @@ interface CardLinkProps extends CardProps {
 }
 
 const CardLink: FC<CardLinkProps> = ({
+  url,
+  name,
   children,
   title,
-  type = CardType.GOAL,
-  url
+  type = CardType.GOAL
 }) => {
   return (
     <Link to={url}>
-      <Card title={title} type={type} children={children} />
+      <Card
+        title={title}
+        type={type}
+        children={children}
+        name={name}
+      />
     </Link>
   )
 }
