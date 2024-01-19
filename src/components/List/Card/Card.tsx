@@ -24,7 +24,7 @@ const Card: FC<CardProps> = ({
     if (clickedDataName) {
       const newDataState = {
         ...userData,
-        [type.toLowerCase()]: {
+        [type]: {
           ...userData[type],
           [clickedDataName]: true
         }

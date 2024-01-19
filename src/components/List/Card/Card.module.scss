@@ -18,6 +18,9 @@ $size: 172px;
     );
     padding: 0;
   }
+  &.card-goal:hover {
+    border: 2px solid inherit;
+  }
   &.card-behavior {
     border-radius: 15px;
     display: flex;

@@ -1,0 +1,12 @@
+.back {
+  background: inherit;
+  border: none;
+  padding: 0;
+  &:hover {
+    border: 0;
+  }
+  &:focus {
+    border: 0;
+    outline-color: invert;
+  }
+}
