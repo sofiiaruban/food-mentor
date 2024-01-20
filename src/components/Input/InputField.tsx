@@ -3,7 +3,14 @@ import styles from './InputField.module.scss'
 import classnames from 'classnames'
 import { useAppSelector } from '@/store/hooks'
 import { selectUserData } from '@/store/user/userSlice'
-import { CM_TO_FT, DEFAULT_NAME, DEFAULT_UNIT, KG_TO_LB, MIN_CM, MIN_KG } from './constants'
+import {
+  CM_TO_FT,
+  DEFAULT_NAME,
+  DEFAULT_UNIT,
+  KG_TO_LB,
+  MIN_CM,
+  MIN_KG
+} from '@/constants'
 
 interface InputFieldProps {
   type: string

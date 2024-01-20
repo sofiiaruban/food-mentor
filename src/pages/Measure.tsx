@@ -10,7 +10,7 @@ import {
   metricMeasureList
 } from '../data'
 import { useState } from 'react'
-import Form from '@/components/MeasureInput/Form'
+import Form from '@/components/Input/Form'
 import ButtonLink from '@/components/ButtonLink/ButtonLink'
 import { AppRoutes } from '@/AppRoutes'
 import classnames from 'classnames'
