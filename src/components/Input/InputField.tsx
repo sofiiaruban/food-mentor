@@ -31,6 +31,7 @@ const InputField: FC<InputFieldProps> = ({
 }) => {
   const [localValue, setLocalValue] = useState('')
   const [isValid, setIsValid] = useState(true)
+  const [isFocused, setIsFocused] = useState(false)
   const MIN_WEIGHT = getMinValidValue(unit, DEFAULT_UNIT, MIN_KG, KG_TO_LB)
   const MIN_HEIGHT = getMinValidValue(unit, DEFAULT_UNIT, MIN_CM, CM_TO_FT)
   const MIN_ALLOWED_VAL = name === DEFAULT_NAME ? MIN_HEIGHT : MIN_WEIGHT
@@ -56,6 +57,10 @@ const InputField: FC<InputFieldProps> = ({
     }
     onInputChange(name, newValue, isValidValue)
   }
+  const handleFocus = () => {
+    setIsFocused(true)
+  }
+
   useEffect(() => {
     setLocalValue(userData.measure[unit][name])
     const isValid = validateInput(localValue, MIN_ALLOWED_VAL)
@@ -71,8 +76,11 @@ const InputField: FC<InputFieldProps> = ({
         name={name}
         value={localValue}
         onChange={handleChange}
+        onFocus={handleFocus}
       />
-      {!isValid ? <small className={styles.small}>Invalid input</small> : null}
+      {!isValid && isFocused ? (
+        <small className={styles.small}>Invalid input</small>
+      ) : null}
     </>
   )
 }

@@ -91,7 +91,6 @@ const Measure = () => {
         className={buttonLinkClasses}
         isDisabled={isDisable}
       />
-      {JSON.stringify(userData)}
     </Layout>
   )
 }
