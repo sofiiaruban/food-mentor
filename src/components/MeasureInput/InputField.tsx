@@ -1,19 +1,23 @@
-import { ChangeEvent, FC, useState } from 'react'
+import { ChangeEvent, FC, useEffect, useState } from 'react'
 import styles from './InputField.module.scss'
 import classnames from 'classnames'
+import { useAppSelector } from '@/store/hooks'
+import { selectUserData } from '@/store/user/userSlice'
 
 interface InputFieldProps {
   type: string
   placeholder: string
   name: string
   onInputChange: (name: string, value: string, isValid: boolean) => void
+  unit: string
 }
 
 const InputField: FC<InputFieldProps> = ({
   type,
   placeholder,
   name,
-  onInputChange
+  onInputChange,
+  unit
 }) => {
   const [value, setValue] = useState('')
   const [isValid, setIsValid] = useState(true)
@@ -26,6 +30,8 @@ const InputField: FC<InputFieldProps> = ({
     },
     { [styles['input-pass']]: isValid && valueLength >= MIN_VALUE_LENGTH }
   )
+  const userData = useAppSelector(selectUserData)
+  const storedValue = userData.measure[unit][name]
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value
@@ -44,7 +50,10 @@ const InputField: FC<InputFieldProps> = ({
     const numericValue = Number(value)
     return !isNaN(numericValue)
   }
-
+  useEffect(() => {
+    setValue('')
+  }, [unit])
+  
   return (
     <>
       <input
@@ -52,7 +61,7 @@ const InputField: FC<InputFieldProps> = ({
         type={type}
         placeholder={placeholder}
         name={name}
-        value={value}
+        value={storedValue || value}
         onChange={handleChange}
       />
       {!isValid ? <small className={styles.small}>Invalid input</small> : null}

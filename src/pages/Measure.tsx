@@ -15,11 +15,14 @@ import ButtonLink from '@/components/ButtonLink/ButtonLink'
 import { AppRoutes } from '@/AppRoutes'
 import classnames from 'classnames'
 import styles from '../components/ButtonLink/ButtonLink.module.scss'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { selectUserData, setUserData } from '@/store/user/userSlice'
+import { UserData } from '@/types/types'
 
 const Measure = () => {
-  const DEFAULT_VALUE = 'imperial'
-  const [value, setValue] = useState(DEFAULT_VALUE)
-  const [inputData, setInputData] = useState<{ [key: string]: string }>({})
+  const DEFAULT_UNIT = 'imperial'
+  const [unit, setUnit] = useState(DEFAULT_UNIT)
+  const [inputData, setInputData] = useState({})
   const NEXT_PAGE_URL = AppRoutes.BEHAVIOR
   const [isDisable, setIsDisable] = useState(true)
   const buttonLinkClasses = classnames(
@@ -31,9 +34,29 @@ const Measure = () => {
       [styles['button-active']]: !isDisable
     }
   )
+  const dispatch = useAppDispatch()
+  const userData = useAppSelector(selectUserData)
+
+  const updateMeasureData = (
+    userData: UserData,
+    unit: string,
+    name: string,
+    value: string
+  ): UserData => {
+    return {
+      ...userData,
+      measure: {
+        ...userData.measure,
+        [unit]: {
+          ...userData.measure[unit],
+          [name]: value
+        }
+      }
+    }
+  }
 
   const handleRadioChange = (newValue: string) => {
-    setValue(newValue)
+    setUnit(newValue)
   }
 
   const handleInputChange = (name: string, value: string, isValid: boolean) => {
@@ -41,8 +64,12 @@ const Measure = () => {
       ...prevData,
       [name]: value
     }))
+
     const isCorrectData = Object.keys(inputData).length === 0 && isValid
     setIsDisable(isCorrectData)
+    const newDataState = updateMeasureData(userData, unit, name, value)
+
+    dispatch(setUserData(newDataState))
   }
 
   return (
@@ -51,22 +78,30 @@ const Measure = () => {
       <DescriptionText text={DescriptionTexts.MEASURE} />
       <RadioGroup
         options={radioGroupOptions}
-        currentValue={value}
+        currentValue={unit}
         onChange={handleRadioChange}
       />
-      <Form
-        measureList={
-          value === DEFAULT_VALUE ? imperialMeasureList : metricMeasureList
-        }
-        onInputChange={handleInputChange}
-      />
+      {unit === DEFAULT_UNIT ? (
+        <Form
+          measureList={imperialMeasureList}
+          onInputChange={handleInputChange}
+          unit={unit}
+        />
+      ) : (
+        <Form
+          measureList={metricMeasureList}
+          onInputChange={handleInputChange}
+          unit={unit}
+        />
+      )}
+
       <ButtonLink
         url={NEXT_PAGE_URL}
         children="Continue"
         className={buttonLinkClasses}
         isDisabled={isDisable}
       />
-      {JSON.stringify(value)}
+      {JSON.stringify(userData)}
     </Layout>
   )
 }

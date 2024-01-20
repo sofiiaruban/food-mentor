@@ -6,9 +6,10 @@ import styles from './Form.module.scss'
 interface FormProps {
   measureList: MeasureData[]
   onInputChange: (name: string, value: string, isValid: boolean) => void
+  unit: string
 }
 
-const Form: FC<FormProps> = ({ measureList, onInputChange }) => {
+const Form: FC<FormProps> = ({ measureList, onInputChange, unit }) => {
   return (
     <form className={styles.form}>
       {measureList.map((measure, index) => (
@@ -20,6 +21,7 @@ const Form: FC<FormProps> = ({ measureList, onInputChange }) => {
           onInputChange={(name, value, isValid) =>
             onInputChange(name, value, isValid)
           }
+          unit={unit}
         />
       ))}
     </form>

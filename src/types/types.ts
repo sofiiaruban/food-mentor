@@ -28,12 +28,8 @@ export interface UserData {
     stressRelief: boolean
   }
   measure: {
-    metric: {
-      weight: string
-      height: string
-    }
-    imperial: {
-      weight: string
+    [key: string]: {
+      [key: string]: string
       height: string
     }
   }
