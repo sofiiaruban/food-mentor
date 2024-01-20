@@ -3,35 +3,58 @@ $size: 172px;
 
 .card {
   border-radius: $radius;
-  border: 1px solid var(--Separator-Light, #e1e1e1);
+  border: 1px solid #e1e1e1;
   display: flex;
   justify-content: center;
   align-items: center;
   width: $size;
   max-height: $size;
   padding-left: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
 
   &.card-goal {
-    background: var(
-      --Background-Gradient-Light,
-      linear-gradient(214deg, #f1f1f1 12.33%, #fff 69.93%)
-    );
+    background: linear-gradient(214deg, #f1f1f1 12.33%, #fff 69.93%);
     padding: 0;
+
+    &:hover {
+      border: 2px solid inherit;
+    }
   }
-  &.card-goal:hover {
-    border: 2px solid inherit;
-  }
+
   &.card-behavior {
     border-radius: 15px;
     display: flex;
     flex-direction: row-reverse;
-    padding: 12px 15px;
+    display: flex;
+    padding: 12px 24px 12px 15px;
+    align-items: center;
     gap: 10px;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      background: lightgray;
+    }
+    &:active {
+      transform: translateY(-2px);
+    }
+    &.selected {
+      border: 2px solid black;
+    }
   }
+
   &.card-activity {
-    background: var(--Background-Light, #fff);
+    background: #fff;
     padding: 18px 15px;
     align-items: left;
+    &:hover {
+      background: lightgray;
+    }
+    &:active {
+      transform: translateY(-2px);
+    }
+    &.selected {
+      border: 2px solid black;
+    }
   }
   img {
     border-top-right-radius: $radius;

@@ -5,13 +5,17 @@ import ParagraphPrimary from '../components/Typography/ParagraphPrimary'
 import { CardType, DescriptionTexts, PrimaryTitle, habitsList } from '../data'
 import ButtonLink from '@/components/ButtonLink/ButtonLink'
 import styles from '../components/ButtonLink/ButtonLink.module.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import classnames from 'classnames'
 import { AppRoutes } from '@/AppRoutes'
+import { useAppSelector } from '@/store/hooks'
+import { selectUserData } from '@/store/user/userSlice'
+import { areSomeTruthyValue } from '@/helpers/areSomeTruthyValue'
 
 const Behavior = () => {
   const NEXT_PAGE_URL = AppRoutes.ACTIVITY
-  const [isDisable] = useState(false) // setIsDisable
+  const [isDisable, setIsDisable] = useState(true)
+  const userData = useAppSelector(selectUserData)
   const buttonLinkClasses = classnames(
     styles.button,
     {
@@ -21,6 +25,15 @@ const Behavior = () => {
       [styles['button-active']]: !isDisable
     }
   )
+  useEffect(() => {
+    const behaviorData = userData[CardType.BEHAVIOR]
+    const areTruthyValues = areSomeTruthyValue(behaviorData)
+    if (areTruthyValues === false) {
+      setIsDisable(true)
+    } else {
+      setIsDisable(false)
+    }
+  }, [userData])
   return (
     <>
       <Layout>

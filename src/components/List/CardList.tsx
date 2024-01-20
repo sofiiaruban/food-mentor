@@ -5,6 +5,7 @@ import { CardProps } from '@/types/types'
 import styles from './CardList.module.scss'
 import CardLink from './Card/CardLink'
 import { CardType } from '@/data'
+import classnames from 'classnames'
 
 interface CardListProps {
   cardList: Array<CardProps>
@@ -14,14 +15,12 @@ interface CardListProps {
   type?: CardType
 }
 
-const CardList: FC<CardListProps> = ({
-  cardList,
-  isLink,
-  url,
-  type,
-}) => {
+const CardList: FC<CardListProps> = ({ cardList, isLink, url, type }) => {
+  const listClasses = classnames(styles.list, {
+    [styles['list-activity']]: type === CardType.ACTIVITY
+  })
   return (
-    <ul className={styles.list}>
+    <ul className={listClasses}>
       {cardList.map((card, index) =>
         isLink && url ? (
           <CardLink

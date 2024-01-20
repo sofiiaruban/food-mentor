@@ -8,3 +8,7 @@
   max-width: calc(360px + 16px);
   padding-left: 0;
 }
+.list-activity {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,4 +1,4 @@
-import { FC, MouseEvent } from 'react'
+import { FC, MouseEvent, useState } from 'react'
 import Paragraph from '../../Typography/Paragraph'
 import { CardProps } from '@/types/types'
 import { CardType } from '@/data'
@@ -15,18 +15,22 @@ const Card: FC<CardProps> = ({
 }) => {
   const dispatch = useAppDispatch()
   const userData = useAppSelector(selectUserData)
+  const [isSelected, setIsSelected] = useState(false)
 
-  const cardClasses = classnames(styles.card, styles[`card-${type}`])
+  const cardClasses = classnames(styles.card, styles[`card-${type}`], {
+    [styles['selected']]: isSelected
+  })
 
   const handleCardClick = (event: MouseEvent<HTMLLIElement>) => {
     const clickedDataName = event.currentTarget?.dataset.name
+    setIsSelected(!isSelected)
 
     if (clickedDataName) {
       const newDataState = {
         ...userData,
         [type]: {
           ...userData[type],
-          [clickedDataName]: true
+          [clickedDataName]: !isSelected
         }
       }
       dispatch(setUserData(newDataState))
