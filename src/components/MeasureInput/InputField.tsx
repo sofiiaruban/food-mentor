@@ -3,6 +3,7 @@ import styles from './InputField.module.scss'
 import classnames from 'classnames'
 import { useAppSelector } from '@/store/hooks'
 import { selectUserData } from '@/store/user/userSlice'
+import { CM_TO_FT, DEFAULT_NAME, DEFAULT_UNIT, KG_TO_LB, MIN_CM, MIN_KG } from './constants'
 
 interface InputFieldProps {
   type: string
@@ -21,12 +22,6 @@ const InputField: FC<InputFieldProps> = ({
 }) => {
   const [localValue, setLocalValue] = useState('')
   const [isValid, setIsValid] = useState(true)
-  const DEFAULT_NAME = 'height'
-  const DEFAULT_UNIT = 'metric'
-  const KG_TO_LB = 2.20462
-  const CM_TO_FT = 0.0328
-  const MIN_KG = 40
-  const MIN_CM = 140
   const MIN_WEIGHT =
     unit === DEFAULT_UNIT ? MIN_KG : Math.trunc(MIN_KG * KG_TO_LB)
   const MIN_HEIGHT =
