@@ -17,7 +17,7 @@ import classnames from 'classnames'
 import styles from '../components/ButtonLink/ButtonLink.module.scss'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { selectUserData, setUserData } from '@/store/user/userSlice'
-import { UserData } from '@/types/types'
+import { updateMeasureData } from '@/helpers/updateMeasureData'
 
 const Measure = () => {
   const DEFAULT_UNIT = 'metric'
@@ -36,24 +36,6 @@ const Measure = () => {
   )
   const dispatch = useAppDispatch()
   const userData = useAppSelector(selectUserData)
-
-  const updateMeasureData = (
-    userData: UserData,
-    unit: string,
-    name: string,
-    value: string
-  ): UserData => {
-    return {
-      ...userData,
-      measure: {
-        ...userData.measure,
-        [unit]: {
-          ...userData.measure[unit],
-          [name]: value
-        }
-      }
-    }
-  }
 
   const handleRadioChange = (newValue: string) => {
     setUnit(newValue)
