@@ -9,7 +9,8 @@ import {
   DEFAULT_UNIT,
   KG_TO_LB,
   MIN_CM,
-  MIN_KG
+  MIN_KG,
+  MIN_VALUE_LENGTH
 } from '@/constants'
 import { validateInput } from '@/helpers/validateInput'
 import { getMinValidValue } from '@/helpers/getMinValidValue'
@@ -49,7 +50,8 @@ const InputField: FC<InputFieldProps> = ({
     const newValue = event.target.value
     const isValidValue = validateInput(newValue, MIN_ALLOWED_VAL)
     setLocalValue(newValue)
-
+    console.log(localValue.length)
+    
     if (isValidValue) {
       setIsValid(true)
     } else {
@@ -78,7 +80,7 @@ const InputField: FC<InputFieldProps> = ({
         onChange={handleChange}
         onFocus={handleFocus}
       />
-      {!isValid && isFocused ? (
+      {!isValid && isFocused && localValue.length >= MIN_VALUE_LENGTH ? (
         <small className={styles.small}>Invalid input</small>
       ) : null}
     </>

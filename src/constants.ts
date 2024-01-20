@@ -4,3 +4,4 @@ export const MIN_KG = 40
 export const MIN_CM = 140
 export const DEFAULT_NAME = 'height'
 export const DEFAULT_UNIT = 'metric'
+export const MIN_VALUE_LENGTH = 2

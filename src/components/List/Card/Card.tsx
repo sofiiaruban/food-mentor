@@ -7,6 +7,7 @@ import classnames from 'classnames'
 import { selectUserData, setUserData } from '@/store/user/userSlice'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 
+
 const Card: FC<CardProps> = ({
   children,
   title,
@@ -18,7 +19,7 @@ const Card: FC<CardProps> = ({
   const [isSelected, setIsSelected] = useState(false)
 
   const cardClasses = classnames(styles.card, styles[`card-${type}`], {
-    [styles['selected']]: isSelected
+    [styles['selected']]:  isSelected
   })
 
   const handleCardClick = (event: MouseEvent<HTMLLIElement>) => {
@@ -37,10 +38,12 @@ const Card: FC<CardProps> = ({
     }
   }
   return (
-    <li className={cardClasses} data-name={name} onClick={handleCardClick}>
-      <Paragraph title={title} />
-      {children}
-    </li>
+    <>
+      <li className={cardClasses} data-name={name} onClick={handleCardClick}>
+        <Paragraph title={title} />
+        {children}
+      </li>
+    </>
   )
 }
 
