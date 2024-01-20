@@ -11,6 +11,8 @@ import {
   MIN_CM,
   MIN_KG
 } from '@/constants'
+import { validateInput } from '@/helpers/validateInput'
+import { getMinValidValue } from '@/helpers/getMinValidValue'
 
 interface InputFieldProps {
   type: string
@@ -29,10 +31,8 @@ const InputField: FC<InputFieldProps> = ({
 }) => {
   const [localValue, setLocalValue] = useState('')
   const [isValid, setIsValid] = useState(true)
-  const MIN_WEIGHT =
-    unit === DEFAULT_UNIT ? MIN_KG : Math.trunc(MIN_KG * KG_TO_LB)
-  const MIN_HEIGHT =
-    unit === DEFAULT_UNIT ? MIN_CM : Math.trunc(MIN_CM * CM_TO_FT)
+  const MIN_WEIGHT = getMinValidValue(unit, DEFAULT_UNIT, MIN_KG, KG_TO_LB)
+  const MIN_HEIGHT = getMinValidValue(unit, DEFAULT_UNIT, MIN_CM, CM_TO_FT)
   const MIN_ALLOWED_VAL = name === DEFAULT_NAME ? MIN_HEIGHT : MIN_WEIGHT
 
   const inputClasses = classnames(
@@ -46,20 +46,15 @@ const InputField: FC<InputFieldProps> = ({
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value
-    const isValidValue = validateInput(newValue)
+    const isValidValue = validateInput(newValue, MIN_ALLOWED_VAL)
     setLocalValue(newValue)
-    console.log(newValue)
+
     if (isValidValue) {
       setIsValid(true)
       onInputChange(name, newValue, isValidValue)
     } else {
       setIsValid(false)
     }
-  }
-
-  const validateInput = (value: string): boolean => {
-    const numericValue = Number(value)
-    return !isNaN(numericValue) && numericValue >= MIN_ALLOWED_VAL
   }
 
   useEffect(() => {
