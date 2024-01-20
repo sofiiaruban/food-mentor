@@ -19,27 +19,36 @@ const InputField: FC<InputFieldProps> = ({
   onInputChange,
   unit
 }) => {
-  const [value, setValue] = useState('')
+  const [localValue, setLocalValue] = useState('')
   const [isValid, setIsValid] = useState(true)
-  const valueLength = value.length
-  const MIN_VALUE_LENGTH = 2
+  const DEFAULT_NAME = 'height'
+  const DEFAULT_UNIT = 'metric'
+  const KG_TO_LB = 2.20462
+  const CM_TO_FT = 0.0328
+  const MIN_KG = 40
+  const MIN_CM = 140
+  const MIN_WEIGHT =
+    unit === DEFAULT_UNIT ? MIN_KG : Math.trunc(MIN_KG * KG_TO_LB)
+  const MIN_HEIGHT =
+    unit === DEFAULT_UNIT ? MIN_CM : Math.trunc(MIN_CM * CM_TO_FT)
+  const MIN_ALLOWED_VAL = name === DEFAULT_NAME ? MIN_HEIGHT : MIN_WEIGHT
+
   const inputClasses = classnames(
     styles['input-field'],
     {
       [styles['input-error']]: !isValid
     },
-    { [styles['input-pass']]: isValid && valueLength >= MIN_VALUE_LENGTH }
+    { [styles['input-pass']]: isValid }
   )
   const userData = useAppSelector(selectUserData)
-  const storedValue = userData.measure[unit][name]
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value
     const isValidValue = validateInput(newValue)
-
+    setLocalValue(newValue)
+    console.log(newValue)
     if (isValidValue) {
       setIsValid(true)
-      setValue(newValue)
       onInputChange(name, newValue, isValidValue)
     } else {
       setIsValid(false)
@@ -48,12 +57,14 @@ const InputField: FC<InputFieldProps> = ({
 
   const validateInput = (value: string): boolean => {
     const numericValue = Number(value)
-    return !isNaN(numericValue)
+    return !isNaN(numericValue) && numericValue >= MIN_ALLOWED_VAL
   }
+
   useEffect(() => {
-    setValue('')
-  }, [unit])
-  
+    setLocalValue(userData.measure[unit][name])
+    setIsValid(true)
+  }, [name, unit, userData.measure])
+
   return (
     <>
       <input
@@ -61,7 +72,7 @@ const InputField: FC<InputFieldProps> = ({
         type={type}
         placeholder={placeholder}
         name={name}
-        value={storedValue || value}
+        value={localValue}
         onChange={handleChange}
       />
       {!isValid ? <small className={styles.small}>Invalid input</small> : null}

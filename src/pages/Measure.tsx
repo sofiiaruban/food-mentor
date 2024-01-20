@@ -20,7 +20,7 @@ import { selectUserData, setUserData } from '@/store/user/userSlice'
 import { UserData } from '@/types/types'
 
 const Measure = () => {
-  const DEFAULT_UNIT = 'imperial'
+  const DEFAULT_UNIT = 'metric'
   const [unit, setUnit] = useState(DEFAULT_UNIT)
   const [inputData, setInputData] = useState({})
   const NEXT_PAGE_URL = AppRoutes.BEHAVIOR
@@ -83,13 +83,13 @@ const Measure = () => {
       />
       {unit === DEFAULT_UNIT ? (
         <Form
-          measureList={imperialMeasureList}
+          measureList={metricMeasureList}
           onInputChange={handleInputChange}
           unit={unit}
         />
       ) : (
         <Form
-          measureList={metricMeasureList}
+          measureList={imperialMeasureList}
           onInputChange={handleInputChange}
           unit={unit}
         />

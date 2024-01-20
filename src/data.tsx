@@ -102,14 +102,14 @@ export const radioGroupOptions = [
   {
     id: '1#',
     name: 'radioGroup',
-    value: 'imperial',
-    label: 'imperial'
+    value: 'metric',
+    label: 'metric'
   },
   {
     id: '2#',
     name: 'radioGroup',
-    value: 'metric',
-    label: 'metric'
+    value: 'imperial',
+    label: 'imperial'
   }
 ]
 
