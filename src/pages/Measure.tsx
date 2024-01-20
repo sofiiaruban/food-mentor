@@ -9,7 +9,7 @@ import {
   imperialMeasureList,
   metricMeasureList
 } from '../data'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Form from '@/components/Input/Form'
 import ButtonLink from '@/components/ButtonLink/ButtonLink'
 import { AppRoutes } from '@/AppRoutes'
@@ -18,13 +18,17 @@ import styles from '../components/ButtonLink/ButtonLink.module.scss'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { selectUserData, setUserData } from '@/store/user/userSlice'
 import { updateMeasureData } from '@/helpers/updateMeasureData'
+import { DEFAULT_UNIT } from '@/constants'
+import { areAllValuesEmpty } from '@/helpers/areAllValuesEmpty'
+import { areSomeValuesEmpty } from '@/helpers/areSomeValuesEmpty'
 
 const Measure = () => {
-  const DEFAULT_UNIT = 'metric'
   const [unit, setUnit] = useState(DEFAULT_UNIT)
-  const [inputData, setInputData] = useState({})
   const NEXT_PAGE_URL = AppRoutes.BEHAVIOR
   const [isDisable, setIsDisable] = useState(true)
+  const [isEmptyObj, setIsEmptyObj] = useState(true)
+  const [isValid, setIsValid] = useState(false)
+
   const buttonLinkClasses = classnames(
     styles.button,
     {
@@ -42,17 +46,21 @@ const Measure = () => {
   }
 
   const handleInputChange = (name: string, value: string, isValid: boolean) => {
-    setInputData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }))
-
-    const isCorrectData = Object.keys(inputData).length === 0 && isValid
-    setIsDisable(isCorrectData)
     const newDataState = updateMeasureData(userData, unit, name, value)
-
     dispatch(setUserData(newDataState))
+    setIsValid(isValid)
   }
+
+  useEffect(() => {
+    const data = userData.measure[unit]
+    const isAllEmpty = areAllValuesEmpty(data)
+    setIsEmptyObj(isAllEmpty)
+    if (isAllEmpty === false) {
+      setIsDisable(false)
+    }
+    const isSomeEmpty = areSomeValuesEmpty(data)
+    setIsDisable(isSomeEmpty || (isEmptyObj && !isValid))
+  }, [unit, userData, isValid, isEmptyObj])
 
   return (
     <Layout>

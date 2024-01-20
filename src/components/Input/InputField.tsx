@@ -51,16 +51,16 @@ const InputField: FC<InputFieldProps> = ({
 
     if (isValidValue) {
       setIsValid(true)
-      onInputChange(name, newValue, isValidValue)
     } else {
       setIsValid(false)
     }
+    onInputChange(name, newValue, isValidValue)
   }
-
   useEffect(() => {
     setLocalValue(userData.measure[unit][name])
-    setIsValid(true)
-  }, [name, unit, userData.measure])
+    const isValid = validateInput(localValue, MIN_ALLOWED_VAL)
+    setIsValid(isValid)
+  }, [MIN_ALLOWED_VAL, localValue, name, unit, userData.measure])
 
   return (
     <>
