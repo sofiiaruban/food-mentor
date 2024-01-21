@@ -31,54 +31,54 @@ export const habitsList = [
   {
     title: "I don't rest enough",
     name: 'restLack',
-    children: <Icon src={moon} />
+    children: <Icon src={moon} alt="moon" />
   },
   {
     title: 'I have a sweet tooth',
     name: 'sweet',
-    children: <Icon src={donut} />
+    children: <Icon src={donut} alt="sweet tooth" />
   },
   {
     title: 'I have too much soda',
     name: 'soda',
-    children: <Icon src={soda} />
+    children: <Icon src={soda} alt="soda" />
   },
   {
     title: 'I eat many salty foods',
     name: 'salt',
-    children: <Icon src={salt} />
+    children: <Icon src={salt} alt="jar of salt" />
   },
   {
     title: 'I enjoy midnight snacks',
     name: 'snacks',
-    children: <Icon src={pizza} />
+    children: <Icon src={pizza} alt="pizza" />
   },
   {
     title: 'None of the above',
     name: 'none',
-    children: <Icon src={forbidden} />
+    children: <Icon src={forbidden} alt="forbidden" />
   }
 ]
 export const goalsList = [
   {
     title: 'Lose Weight',
     name: 'lose',
-    children: <Icon src={lose} width={85} height={172} />
+    children: <Icon src={lose} width={85} height={172} alt="woman" />
   },
   {
     title: 'Gain Muscle',
     name: 'gain',
-    children: <Icon src={gain} width={130} height={172} />
+    children: <Icon src={gain} width={130} height={172} alt="woman" />
   },
   {
     title: 'Develop healthy habits',
     name: 'health',
-    children: <Icon src={developLeft} width={81} height={172} />
+    children: <Icon src={developLeft} width={81} height={172} alt="woman" />
   },
   {
     title: 'Develop healthy habits',
     name: 'stressRelief',
-    children: <Icon src={developRight} width={100} height={172} />
+    children: <Icon src={developRight} width={100} height={172} alt="woman" />
   }
 ]
 export const activityList = [

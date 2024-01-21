@@ -10,8 +10,13 @@ export const ButtonBack: FC = () => {
     navigate(-1)
   }
   return (
-    <button type="button" className={styles.back} onClick={goBack}>
-      <Icon src={back} />
+    <button
+      type="button"
+      className={styles.back}
+      onClick={goBack}
+      aria-label="Go back"
+    >
+      <Icon src={back} alt="Go back" />
     </button>
   )
 }
